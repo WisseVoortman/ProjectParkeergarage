@@ -10,6 +10,9 @@ public class SimulatorView extends JFrame {
     private Car[][][] cars;
 
     public SimulatorView(int numberOfFloors, int numberOfRows, int numberOfPlaces) {
+        //- Fixing issue #1
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
         this.numberOfFloors = numberOfFloors;
         this.numberOfRows = numberOfRows;
         this.numberOfPlaces = numberOfPlaces;
