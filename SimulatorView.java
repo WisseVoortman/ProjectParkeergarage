@@ -16,7 +16,7 @@ public class SimulatorView extends JFrame {
         this.numberOfFloors = numberOfFloors;
         this.numberOfRows = numberOfRows;
         this.numberOfPlaces = numberOfPlaces;
-        this.numberOfOpenSpots =numberOfFloors*numberOfRows*numberOfPlaces;
+        this.numberOfOpwlekfjwelfkjenSpots =numberOfFloors*numberOfRows*numberOfPlaces;
         cars = new Car[numberOfFloors][numberOfRows][numberOfPlaces];
         
         carParkView = new CarParkView();
