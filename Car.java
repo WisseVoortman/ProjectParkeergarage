@@ -46,7 +46,10 @@ public abstract class Car {
         this.hasToPay = hasToPay;
     }
 
-    public void tick() {
+    /*
+     * Removes a minute from the time a Car has.
+     */
+    public void carRemoveMinute() {
         minutesLeft--;
     }
     
