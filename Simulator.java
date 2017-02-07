@@ -13,6 +13,7 @@ public class Simulator {
 	// insert view
 	private Controller controller;
 	private EarningsView earningsView;
+	private CarParkView carParkView;
 		
     public Simulator() {
     	model=new Model();
@@ -23,7 +24,8 @@ public class Simulator {
     	//countview=new CountView(model);
 		//pieview=new PieView(model);
     	earningsView=new EarningsView(model);
-		
+    	carParkView = new CarParkView(model);
+
     	screen=new JFrame("Parkeer Garage");
 		screen.setSize(900, 650);
 		screen.setResizable(true);
@@ -37,7 +39,6 @@ public class Simulator {
 		//screen.getContentPane().add(pieview);
 		screen.getContentPane().add(controller);
 		screen.getContentPane().add(earningsView);
-		JPanel carParkView = model.simulatorView.carParkView;
 		screen.getContentPane().add(carParkView);
 
 		//setbounds for views + controller

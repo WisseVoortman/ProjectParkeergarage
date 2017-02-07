@@ -1,6 +1,5 @@
 @SuppressWarnings("serial")
 public class SettingsView extends AbstractView {
-
 	private Model model;
 	
 	//class variables here
