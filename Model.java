@@ -127,7 +127,7 @@ public class Model implements Runnable{
         carsLeaving();
     }
     
-    private void updateViews(){
+    public void updateViews(){
     	carAction();
         // Update the car park view.
         for( AbstractView v : views ) {
