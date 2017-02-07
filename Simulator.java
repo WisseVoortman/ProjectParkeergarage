@@ -87,6 +87,29 @@ public class Simulator {
             item.addActionListener(e -> quit());
         menu.add(item);
         
+     // create the Views menu
+        menu = new JMenu("Views");
+        menubar.add(menu);
+        
+        item = new JMenuItem("View 1");
+		item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, SHORTCUT_MASK));
+		item.addActionListener(e -> model.start());
+		menu.add(item);
+        
+		item = new JMenuItem("View 2");
+		item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, SHORTCUT_MASK));
+		item.addActionListener(e -> model.start());
+		menu.add(item);
+		
+		item = new JMenuItem("View 3");
+		item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3, SHORTCUT_MASK));
+		item.addActionListener(e -> model.start());
+		menu.add(item);
+		
+		item = new JMenuItem("View 4");
+		item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_4, SHORTCUT_MASK));
+		item.addActionListener(e -> model.start());
+		menu.add(item);
     } 
 
     private void quit() {
