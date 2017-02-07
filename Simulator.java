@@ -82,7 +82,7 @@ public class Simulator {
     		item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_T, SHORTCUT_MASK));
     		item.addActionListener(e -> model.tick());
     	menu.add(item);
-		
+		   	
         item = new JMenuItem("Quit");
             item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, SHORTCUT_MASK));
             item.addActionListener(e -> quit());
