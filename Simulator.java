@@ -13,15 +13,13 @@ public class Simulator {
 	// insert view
 	private Controller controller;
 	private EarningsView earningsView;
-	private CarParkView carParkView;
-	
+		
     public Simulator() {
     	model=new Model();
     	//creat an instance of controller 
     	controller=new Controller(model);
-		
+	
     	//create an instance of a view
-    	carParkView = new CarParkView(model);
     	//countview=new CountView(model);
 		//pieview=new PieView(model);
     	earningsView=new EarningsView(model);
@@ -39,7 +37,6 @@ public class Simulator {
 		//screen.getContentPane().add(pieview);
 		screen.getContentPane().add(controller);
 		screen.getContentPane().add(earningsView);
-		screen.getContentPane().add(carParkView);
 		screen.setBackground(Color.YELLOW);
 		screen.getContentPane().setBackground(Color.YELLOW);
 		
@@ -48,7 +45,6 @@ public class Simulator {
 		//pieview.setBounds(230, 10, 200, 200);
 		controller.setBounds(0, 0, 450, 50);
 		earningsView.setBounds(0, 50, 450, 50);
-		carParkView.setBounds(0, 50, 450, 50);
 		
 		screen.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		screen.setVisible(true);

@@ -18,12 +18,6 @@ public class Model implements Runnable{
     private CarQueue paymentCarQueue;
     private CarQueue exitCarQueue;
     
-    private int numberOfFloors;
-    private int numberOfRows;
-    private int numberOfPlaces;
-    private int numberOfOpenSpots;
-    
-    private Car[][][] cars;
     
     private int day = 0;
     private int hour = 0;
@@ -48,13 +42,7 @@ public class Model implements Runnable{
         entrancePassQueue = new CarQueue();
         paymentCarQueue = new CarQueue();
         exitCarQueue = new CarQueue();
-        
-        numberOfFloors = 3;
-        numberOfRows = 6;
-        numberOfPlaces = 30;
-        numberOfOpenSpots =numberOfFloors*numberOfRows*numberOfPlaces;
-        cars = new Car[getNumberOfFloors()][getNumberOfRows()][getNumberOfPlaces()];
-        
+        simulatorView = new SimulatorView(3, 6, 30);
         views=new ArrayList<AbstractView>();
     }
     
@@ -127,9 +115,9 @@ public class Model implements Runnable{
     }
     
     private void updateViews(){
-    	carAction();
+    	simulatorView.carAction();
         // Update the car park view.
-        updateView();	
+        simulatorView.updateView();	
     }
     
     private void carsArriving(){
@@ -143,18 +131,18 @@ public class Model implements Runnable{
         int i=0;
         // Remove car from the front of the queue and assign to a parking space.
     	while (queue.carsInQueue()>0 && 
-    			getNumberOfOpenSpots()>0 && 
+    			simulatorView.getNumberOfOpenSpots()>0 && 
     			i<enterSpeed) {
             Car car = queue.removeCar();
-            Location freeLocation = getFirstFreeLocation();
-            setCarAt(freeLocation, car);
+            Location freeLocation = simulatorView.getFirstFreeLocation();
+            simulatorView.setCarAt(freeLocation, car);
             i++;
         }
     }
     
     private void carsReadyToLeave(){
         // Add leaving cars to the payment queue.
-        Car car = getFirstLeavingCar();
+        Car car = simulatorView.getFirstLeavingCar();
         while (car!=null) {
         	if (car.getHasToPay()){
 	            car.setIsPaying(true);
@@ -163,7 +151,7 @@ public class Model implements Runnable{
         	else {
         		carLeavesSpot(car);
         	}
-            car = getFirstLeavingCar();
+            car = simulatorView.getFirstLeavingCar();
         }
     }
 
@@ -218,119 +206,8 @@ public class Model implements Runnable{
     }
     
     private void carLeavesSpot(Car car){
-    	removeCarAt(car.getLocation());
+    	simulatorView.removeCarAt(car.getLocation());
         exitCarQueue.addCar(car);
-    }
-    
-    public int getNumberOfFloors() {
-        return numberOfFloors;
-    }
-
-    public int getNumberOfRows() {
-        return numberOfRows;
-    }
-
-    public int getNumberOfPlaces() {
-        return numberOfPlaces;
-    }
-
-    public int getNumberOfOpenSpots(){
-    	return numberOfOpenSpots;
-    }
-    
-    public void updateView() {
-        carParkView.updateView();
-    }
-       
-    public Car getCarAt(Location location) {
-        if (!locationIsValid(location)) {
-            return null;
-        }
-        return cars[location.getFloor()][location.getRow()][location.getPlace()];
-    }
-
-    public boolean setCarAt(Location location, Car car) {
-        if (!locationIsValid(location)) {
-            return false;
-        }
-        Car oldCar = getCarAt(location);
-        if (oldCar == null) {
-            cars[location.getFloor()][location.getRow()][location.getPlace()] = car;
-            car.setLocation(location);
-            numberOfOpenSpots--;
-            return true;
-        }
-        return false;
-    }
-
-    public Car removeCarAt(Location location) {
-        if (!locationIsValid(location)) {
-            return null;
-        }
-        Car car = getCarAt(location);
-        if (car == null) {
-            return null;
-        }
-        cars[location.getFloor()][location.getRow()][location.getPlace()] = null;
-        car.setLocation(null);
-        numberOfOpenSpots++;
-        return car;
-    }
-
-    public Location getFirstFreeLocation() {
-        for (int floor = 0; floor < getNumberOfFloors(); floor++) {
-            for (int row = 0; row < getNumberOfRows(); row++) {
-                for (int place = 0; place < getNumberOfPlaces(); place++) {
-                    Location location = new Location(floor, row, place);
-                    if (getCarAt(location) == null) {
-                        return location;
-                    }
-                }
-            }
-        }
-        return null;
-    }
-
-    public Car getFirstLeavingCar() {
-        for (int floor = 0; floor < getNumberOfFloors(); floor++) {
-            for (int row = 0; row < getNumberOfRows(); row++) {
-                for (int place = 0; place < getNumberOfPlaces(); place++) {
-                    Location location = new Location(floor, row, place);
-                    Car car = getCarAt(location);
-                    if (car != null && car.getMinutesLeft() <= 0 && !car.getIsPaying()) {
-                        return car;
-                    }
-                }
-            }
-        }
-        return null;
-    }
-
-    /*
-     * allowing a car to do something by checking every parking spot for a car, if there is a car call the carTick() method.
-     */
-    public void carAction() {
-        for (int floor = 0; floor < getNumberOfFloors(); floor++) {
-            for (int row = 0; row < getNumberOfRows(); row++) {
-                for (int place = 0; place < getNumberOfPlaces(); place++) {
-                    Location location = new Location(floor, row, place);
-                    Car car = getCarAt(location);
-                    if (car != null) {
-                        car.carRemoveMinute();
-                    }
-                }
-            }
-        }
-    }
-
-    private boolean locationIsValid(Location location) {
-        int floor = location.getFloor();
-        int row = location.getRow();
-        int place = location.getPlace();
-        if (floor < 0 || floor >= numberOfFloors || row < 0 || row > numberOfRows || place < 0 || place > numberOfPlaces) {
-            return false;
-        }
-        return true;
     }
     
 }
