@@ -90,6 +90,13 @@ public class Model implements Runnable{
         }
     	handleEntrance();
     }
+    
+    public void ticks() {
+    	for (int i = 0; i < 60; i++){
+    		
+    		tick();
+    	}
+    }
 
     private void advanceTime(){
         // Advance the time by one minute.
