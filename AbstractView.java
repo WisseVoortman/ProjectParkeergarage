@@ -8,4 +8,8 @@ public abstract class AbstractView extends JPanel {
 		this.model=model;
 		setVisible(true);
 	}
+
+	public void updateView() {
+
+	}
 }

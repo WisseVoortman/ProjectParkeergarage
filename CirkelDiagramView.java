@@ -15,4 +15,9 @@ public class CirkelDiagramView extends AbstractView {
 		
 		model.addView(this);
 	}
+
+	public void updateView() {
+
+		repaint();
+	}
 }

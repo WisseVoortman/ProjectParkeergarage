@@ -117,6 +117,9 @@ public class Model implements Runnable{
     private void updateViews(){
     	simulatorView.carAction();
         // Update the car park view.
+        for( AbstractView v : views ) {
+            v.updateView();
+        }
         simulatorView.updateView();	
     }
     

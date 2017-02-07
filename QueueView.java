@@ -17,4 +17,9 @@ public class QueueView extends AbstractView {
 		
 		model.addView(this);
 	}
+
+	public void updateView() {
+
+		repaint();
+	}
 }
