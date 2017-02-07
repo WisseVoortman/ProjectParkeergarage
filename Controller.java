@@ -30,7 +30,7 @@ public class Controller extends AbstractController {
 		add(stop);
 		add(tick);
 		add(ticks);
-		// setBounds x/horizontal coördinates, y/vertical coördinates, width, Height,
+		// setBounds x/horizontal coï¿½rdinates, y/vertical coï¿½rdinates, width, Height,
 		start.setBounds(0, 0, 70, 30);
 		stop.setBounds(80, 0, 70, 30);
 		tick.setBounds(160, 0, 70, 30);
@@ -60,7 +60,7 @@ public class Controller extends AbstractController {
 		
 		if (e.getSource()==ticks) {
 			System.out.println("Starting the simulator for 60 ticks");
-			model.ticks();
+			new Thread( ()-> { model.ticks(); }).start();
 			System.out.println("60 ticks done!");
 		}
 	}
