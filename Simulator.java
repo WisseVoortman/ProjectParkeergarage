@@ -25,10 +25,10 @@ public class Simulator {
     	earningsView=new EarningsView(model);
 		
     	screen=new JFrame("Parkeer Garage");
-		screen.setSize(450, 285);
+		screen.setSize(900, 650);
 		screen.setResizable(true);
 		screen.setLayout(null);
-		
+		screen.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
 		makeMenuBar(screen);
 							
@@ -37,15 +37,16 @@ public class Simulator {
 		//screen.getContentPane().add(pieview);
 		screen.getContentPane().add(controller);
 		screen.getContentPane().add(earningsView);
-		screen.setBackground(Color.YELLOW);
-		screen.getContentPane().setBackground(Color.YELLOW);
-		
+		JPanel carParkView = model.simulatorView.carParkView;
+		screen.getContentPane().add(carParkView);
+
 		//setbounds for views + controller
 		//countview.setBounds(10, 10, 200, 200);
 		//pieview.setBounds(230, 10, 200, 200);
-		controller.setBounds(0, 0, 450, 50);
-		earningsView.setBounds(0, 50, 450, 50);
-		
+		controller.setBounds(0, 0, 900, 50);
+		carParkView.setBounds(0,50,850,550);
+		earningsView.setBounds(0, 550, 450, 50);
+
 		screen.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		screen.setVisible(true);
 		//model.run();

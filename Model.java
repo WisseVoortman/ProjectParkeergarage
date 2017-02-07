@@ -11,7 +11,7 @@ public class Model implements Runnable{
 	private static final String AD_HOC = "1";
 	private static final String PASS = "2";
 	
-	private SimulatorView simulatorView;
+	public SimulatorView simulatorView;
 	
 	private CarQueue entranceCarQueue;
     private CarQueue entrancePassQueue;

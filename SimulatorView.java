@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SimulatorView extends JFrame {
-    private CarParkView carParkView;
+    public CarParkView carParkView;
     private int numberOfFloors;
     private int numberOfRows;
     private int numberOfPlaces;
@@ -11,9 +11,7 @@ public class SimulatorView extends JFrame {
     
 
     public SimulatorView(int numberOfFloors, int numberOfRows, int numberOfPlaces) {
-        //- Fixing issue #1
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
+        this.setVisible(false);
         this.numberOfFloors = numberOfFloors;
         this.numberOfRows = numberOfRows;
         this.numberOfPlaces = numberOfPlaces;
@@ -25,7 +23,6 @@ public class SimulatorView extends JFrame {
         Container contentPane = getContentPane();
         contentPane.add(carParkView, BorderLayout.CENTER);
         pack();
-        setVisible(true);
 
         updateView();
     }
