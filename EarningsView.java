@@ -1,7 +1,7 @@
 import javax.swing.*;
 
 @SuppressWarnings("serial")
-public class EarningsView extends AbstractView{
+public class EarningsView extends AbstractView {
 
 	private Model model;
 	
