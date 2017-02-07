@@ -19,6 +19,7 @@ public class Controller extends AbstractController {
 		start.addActionListener(this);
 		stop=new JButton("stop");
 		stop.addActionListener(this);
+		stop.setEnabled(false);
 		tick=new JButton("1 minuut verder");
 		tick.addActionListener(this);
 		ticks=new JButton("1 uur verder");
@@ -43,12 +44,16 @@ public class Controller extends AbstractController {
 		if (e.getSource()==start) {
 			System.out.println("Starting the simulator!");
 			model.start();
+			this.start.setEnabled(false);
+			this.stop.setEnabled(true);
 			System.out.println("The simulator has been started!");
 		}
 		
 		if (e.getSource()==stop) {
 			System.out.println("Stopping the simulator!");
 			model.stop();
+			this.start.setEnabled(true);
+			this.stop.setEnabled(false);
 			System.out.println("The simulator has been stopped!");
 		}
 		
@@ -60,7 +65,11 @@ public class Controller extends AbstractController {
 		
 		if (e.getSource()==ticks) {
 			System.out.println("Starting the simulator for 60 ticks");
-			new Thread( ()-> { model.ticks(); }).start();
+			new Thread( ()-> {
+				this.ticks.setEnabled(false);
+				model.ticks();
+				this.ticks.setEnabled(true);
+			}).start();
 			System.out.println("60 ticks done!");
 		}
 	}
