@@ -47,8 +47,7 @@ public class Simulator {
 		controller.setBounds(0, 0, 900, 50);
 		carParkView.setBounds(0,50,850,550);
 		earningsView.setBounds(0, 550, 450, 50);
-
-		screen.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
 		screen.setVisible(true);
 
 		screen.repaint();
