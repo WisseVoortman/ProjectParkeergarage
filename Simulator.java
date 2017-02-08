@@ -45,7 +45,7 @@ public class Simulator {
 
 		//- Full screen
 		screen.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		screen.setUndecorated(true);
+		//screen.setUndecorated(true);
 
 		makeMenuBar(screen);
 							
