@@ -386,10 +386,26 @@ public class Model implements Runnable{
     
     public String getMinute() {
     	if (minute < 10) {
-    		return "0" + Integer.toString(minute) ;
+    		return "0" + Integer.toString(minute);
     	} 
     	else {
     		return Integer.toString(minute);
     	}
+    }
+    
+    public CarQueue getEntranceCarQueue() {
+    	return entranceCarQueue;
+    }
+    
+    public CarQueue getEntrancePassQueue() {
+    	return entrancePassQueue;
+    }
+    
+    public CarQueue getPaymentCarQueue() {
+    	return paymentCarQueue;
+    }
+    
+    public CarQueue getExitCarQueue() {
+    	return exitCarQueue;
     }
 }

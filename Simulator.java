@@ -67,8 +67,8 @@ public class Simulator {
 		settingsView.setBounds(0, 550, 900, 50);
 		earningsView.setBounds(0, 600, 900, 200);
         cirkelDiagramView.setBounds(900, 50, 250, 250);
-        queueView.setBounds(0, 850, 900, 50);
-        logView.setBounds(0, 900, 900, 50);
+        queueView.setBounds(0, 800, 900, 160);
+        logView.setBounds(0, 960, 900, 50);
 		
 		screen.setVisible(true);
 
