@@ -62,10 +62,10 @@ public class Simulator {
 		//setBounds for the view(s)
 		carParkView.setBounds(0,50,900,550);
 		settingsView.setBounds(0, 600, 900, 50);
-		earningsView.setBounds(0, 650, 900, 50);
-        cirkelDiagramView.setBounds(0, 700, 900, 50);
-        queueView.setBounds(0, 750, 900, 50);
-        logView.setBounds(0, 800, 900, 50);
+		earningsView.setBounds(0, 650, 900, 200);
+        cirkelDiagramView.setBounds(0, 850, 900, 50);
+        queueView.setBounds(0, 900, 900, 50);
+        logView.setBounds(0, 950, 900, 50);
 		
 		screen.setVisible(true);
 
