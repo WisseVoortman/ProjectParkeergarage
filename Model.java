@@ -384,7 +384,12 @@ public class Model implements Runnable{
     	}
     }
     
-    public String getMinuut() {
-    	return "";
+    public String getMinute() {
+    	if (minute < 10) {
+    		return "0" + Integer.toString(minute) ;
+    	} 
+    	else {
+    		return Integer.toString(minute);
+    	}
     }
 }
