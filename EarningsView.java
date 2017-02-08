@@ -14,7 +14,7 @@ public class EarningsView extends AbstractView {
 		
 		start=new JButton("start");
 		
-		label=new JLabel("dit is een label");
+		label=new JLabel("dit is een de EarnignsView");
 		this.setLayout(null);
 		add(start);
 		add(label);
