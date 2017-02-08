@@ -79,7 +79,7 @@ public class EarningsView extends AbstractView {
 	
 	public void updateView() {
 		dagData.setText(model.getDay());
-		uurData.setText("bla2");
+		uurData.setText(model.getHour());
 		minuutData.setText("bla3");
 		
 		gemaakteOmzetData.setText("bla4");

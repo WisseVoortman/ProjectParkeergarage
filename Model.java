@@ -375,8 +375,13 @@ public class Model implements Runnable{
     	return "";
     }
     
-    public String getUur() {
-    	return "";
+    public String getHour() {
+    	if (hour < 10) {
+    		return "0" + Integer.toString(hour) ;
+    	} 
+    	else {
+    		return Integer.toString(hour);
+    	}
     }
     
     public String getMinuut() {
