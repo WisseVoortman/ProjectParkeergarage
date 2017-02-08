@@ -348,7 +348,6 @@ public class Model implements Runnable{
     }
     
     public String getDay() {
-    	System.out.println(day);
     	if (day == 0) {
     		
     		return "Maandag";
