@@ -7,6 +7,8 @@ public class CirkelDiagramView extends AbstractView {
 
 	private Model model;
 	private JLabel label;
+	private ArrayList<Slice> slices;
+	private PieChart pieChart;
 	//class variables here
 	
 	public CirkelDiagramView(Model model) {
@@ -15,35 +17,14 @@ public class CirkelDiagramView extends AbstractView {
 
 		//code for view here
 		label=new JLabel("dit is een de Cirkeldiagramview");
-		
+		slices = new ArrayList<Slice>();
+
 		this.setLayout(null);
 		add(label);
 		
 		label.setBounds(0, 0, 200, 30);
 
-		//- Pie Chart
-		ArrayList<Double> values = new ArrayList<Double>();
-		values.add(new Double(20));
-		values.add(new Double(20));
-		values.add(new Double(20));
-		values.add(new Double(20));
-		values.add(new Double(20));
-
-		ArrayList<Color> colors = new ArrayList<Color>();
-		colors.add(Color.red);
-		colors.add(Color.green);
-		colors.add(Color.blue);
-		colors.add(Color.pink);
-		colors.add(Color.yellow);
-		//PieChart pieChart = new PieChart(values, colors);
-		//add(pieChart);
-		ArrayList<Slice> slices = new ArrayList<Slice>();
-		slices.add( new Slice( Color.RED, 20d ) );
-		slices.add( new Slice( Color.GREEN, 20d ) );
-		slices.add( new Slice( Color.BLUE, 30d ) );
-		slices.add( new Slice( Color.YELLOW, 30d ) );
-
-		PieChart pieChart = new PieChart(slices);
+		pieChart = new PieChart(slices);
 		add(pieChart);
 		pieChart.setBounds(0,0,200,200);
 		
@@ -53,7 +34,12 @@ public class CirkelDiagramView extends AbstractView {
 	}
 
 	public void updateView() {
+		slices = new ArrayList<Slice>();
+		slices.add( new Slice( Color.WHITE, (double)model.getNumberOfOpenSpots() ) );
+		slices.add( new Slice( Color.RED, (double)model.getCars( AdHocCar.class.getName() ) ) );
+		slices.add( new Slice( Color.BLUE, (double)model.getCars( ParkingPassCar.class.getName() ) ) );
 
+		pieChart.setSlices( slices );
 		repaint();
 	}
 }

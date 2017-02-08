@@ -68,6 +68,13 @@ public class PieChart extends JPanel {
 
     }
 
+    public void setSlices(ArrayList slices) {
+
+        type = Type.STANDARD_SLICES;
+
+        this.slices = slices;
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
 
@@ -119,8 +126,6 @@ public class PieChart extends JPanel {
                 Double val = slices.get(i).value;
                 Double angle = ( val / totalValue ) * 360;
                 g2d.fillArc(0, 0, width, width, lastPoint, -angle.intValue());
-                System.out.println("fill arc " + lastPoint + " "
-                        + -angle.intValue());
 
                 lastPoint = lastPoint + -angle.intValue();
             }
