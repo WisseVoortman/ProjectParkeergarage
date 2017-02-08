@@ -17,7 +17,7 @@ public class CirkelDiagramView extends AbstractView {
 		this.setLayout(null);
 		add(label);
 		
-		label.setBounds(0, 0, 100, 30);
+		label.setBounds(0, 0, 200, 30);
 		
 		setVisible(true);
 		

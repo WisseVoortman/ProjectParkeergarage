@@ -11,12 +11,12 @@ public class SettingsView extends AbstractView {
 		this.model=model;
 
 		//code for view here
-		label=new JLabel("dit is een de dit is de SettingsView");
+		label=new JLabel("dit is de SettingsView");
 		
 		this.setLayout(null);
 		add(label);
 		
-		label.setBounds(0, 0, 100, 30);
+		label.setBounds(0, 0, 200, 30);
 		
 		setVisible(true);
 		

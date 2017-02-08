@@ -10,22 +10,33 @@ public class Simulator {
 
 	private Model model;
 	private JFrame screen;
-	// insert view
+	
+	//insert controller
 	private Controller controller;
-	private EarningsView earningsView;
+	
+	// insert view
 	private CarParkView carParkView;
+	private SettingsView settingsView;
+	private EarningsView earningsView;
+	private CirkelDiagramView cirkelDiagramView;
+	private QueueView queueView;
+	private LogView logView;
+	
 		
     public Simulator() {
     	model=new Model();
+    	
     	//creat an instance of controller 
     	controller=new Controller(model);
 	
     	//create an instance of a view
-    	//countview=new CountView(model);
-		//pieview=new PieView(model);
-    	earningsView=new EarningsView(model);
     	carParkView = new CarParkView(model);
-
+    	settingsView = new SettingsView(model);
+    	earningsView = new EarningsView(model);
+    	cirkelDiagramView = new CirkelDiagramView(model);
+    	queueView = new QueueView(model);
+    	logView = new LogView(model);
+    	
     	screen=new JFrame("Parkeer Garage");
 		screen.setSize(900, 650);
 		screen.setResizable(true);
@@ -34,20 +45,28 @@ public class Simulator {
 		
 		makeMenuBar(screen);
 							
-		//add views+controller to the screen
-		//screen.getContentPane().add(countview);
-		//screen.getContentPane().add(pieview);
+		//add controller to the screen
 		screen.getContentPane().add(controller);
-		screen.getContentPane().add(earningsView);
+		
+		//add view(s) to the screen
 		screen.getContentPane().add(carParkView);
-
-		//setbounds for views + controller
-		//countview.setBounds(10, 10, 200, 200);
-		//pieview.setBounds(230, 10, 200, 200);
+		screen.getContentPane().add(settingsView);
+		screen.getContentPane().add(earningsView);
+		screen.getContentPane().add(cirkelDiagramView);
+		screen.getContentPane().add(queueView);
+		screen.getContentPane().add(logView);
+		
+		//setbounds for the controller(s)
 		controller.setBounds(0, 0, 900, 50);
-		carParkView.setBounds(0,50,850,550);
-		earningsView.setBounds(0, 550, 450, 50);
-        
+		
+		//setBounds for the view(s)
+		carParkView.setBounds(0,50,900,550);
+		settingsView.setBounds(0, 600, 900, 50);
+		earningsView.setBounds(0, 650, 900, 50);
+        cirkelDiagramView.setBounds(0, 700, 900, 50);
+        queueView.setBounds(0, 750, 900, 50);
+        logView.setBounds(0, 800, 900, 50);
+		
 		screen.setVisible(true);
 
 		screen.repaint();

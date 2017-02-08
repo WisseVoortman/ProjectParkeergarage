@@ -21,7 +21,7 @@ public class EarningsView extends AbstractView {
 		
 				
 		start.setBounds(229, 0, 70, 30);
-		label.setBounds(0, 0, 100, 30);
+		label.setBounds(0, 0, 200, 30);
 		
 		setVisible(true);
 		
