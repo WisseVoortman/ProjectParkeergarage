@@ -52,11 +52,11 @@ public class CarParkView extends AbstractView {
 
 		Dimension currentSize = getSize();
 		if (size.equals(currentSize)) {
-			g.drawImage(carParkImage, 0, 0, null);
+			g.drawImage(carParkImage, 0, 0 - 60, null);
 		}
 		else {
 			// Rescale the previous image.
-			g.drawImage(carParkImage, 0, 0, currentSize.width, currentSize.height, null);
+			g.drawImage(carParkImage, 0, 0 - 60, currentSize.width, currentSize.height, null);
 		}
 	}
 
