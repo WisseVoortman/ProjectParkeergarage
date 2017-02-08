@@ -332,4 +332,39 @@ public class Model implements Runnable{
         return true;
     }
     
+    public String getDay() {
+    	System.out.println(day);
+    	if (day == 0) {
+    		
+    		return "Maandag";
+    	}
+    	if (day == 1) {
+    		return "dinsdag";
+    	}
+    	if (day == 2) {
+    		return "Woensdag";
+    	}
+    	if (day == 3) {
+    		return "Donderdag";
+    	}
+    	if (day == 4) {
+    		return "Vrijdag";
+    	}
+    	if (day == 5) {
+    		return "Zaterdag";
+    	}
+    	if (day == 6) {
+    		return "Zondag";
+    	}
+    	
+    	return "";
+    }
+    
+    public String getUur() {
+    	return "";
+    }
+    
+    public String getMinuut() {
+    	return "";
+    }
 }
