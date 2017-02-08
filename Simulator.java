@@ -42,7 +42,11 @@ public class Simulator {
 		screen.setResizable(true);
 		screen.setLayout(null);
 		screen.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		
+
+		//- Full screen
+		screen.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		screen.setUndecorated(true);
+
 		makeMenuBar(screen);
 							
 		//add controller to the screen
@@ -60,12 +64,12 @@ public class Simulator {
 		controller.setBounds(0, 0, 900, 50);
 		
 		//setBounds for the view(s)
-		carParkView.setBounds(0,50,900,550);
-		settingsView.setBounds(0, 600, 900, 50);
-		earningsView.setBounds(0, 650, 900, 200);
-        cirkelDiagramView.setBounds(0, 850, 900, 50);
-        queueView.setBounds(0, 900, 900, 50);
-        logView.setBounds(0, 950, 900, 50);
+		carParkView.setBounds(0,50,900,500);
+		settingsView.setBounds(0, 550, 900, 50);
+		earningsView.setBounds(0, 600, 900, 200);
+        cirkelDiagramView.setBounds(900, 50, 250, 250);
+        queueView.setBounds(0, 850, 900, 50);
+        logView.setBounds(0, 900, 900, 50);
 		
 		screen.setVisible(true);
 
