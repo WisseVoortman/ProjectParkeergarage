@@ -68,6 +68,13 @@ public class PieChart extends JPanel {
 
     }
 
+    public void setSlices(ArrayList slices) {
+
+        type = Type.STANDARD_SLICES;
+
+        this.slices = slices;
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
 
