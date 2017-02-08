@@ -45,7 +45,6 @@ public class Simulator {
 
 		//- Full screen
 		screen.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		//screen.setUndecorated(true);
 
 		makeMenuBar(screen);
 							
@@ -107,6 +106,20 @@ public class Simulator {
     		item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_T, SHORTCUT_MASK));
     		item.addActionListener(e -> model.tick());
     	menu.add(item);
+
+        menu.addSeparator();
+
+        item = new JMenuItem("Fullscreen");
+            item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F11, SHORTCUT_MASK));
+            item.addActionListener(e -> {
+                this.screen.dispose();
+                this.screen.setUndecorated(!this.screen.isUndecorated());
+                this.screen.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                this.screen.setVisible(true);
+            });
+        menu.add(item);
+
+        menu.addSeparator();
 		   	
         item = new JMenuItem("Quit");
             item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, SHORTCUT_MASK));
@@ -118,23 +131,23 @@ public class Simulator {
         menubar.add(menu);
         
         item = new JMenuItem("View 1");
-		item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, SHORTCUT_MASK));
-		item.addActionListener(e -> model.start());
+            item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, SHORTCUT_MASK));
+            item.addActionListener(e -> model.start());
 		menu.add(item);
         
 		item = new JMenuItem("View 2");
-		item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, SHORTCUT_MASK));
-		item.addActionListener(e -> model.start());
+            item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, SHORTCUT_MASK));
+            item.addActionListener(e -> model.start());
 		menu.add(item);
 		
 		item = new JMenuItem("View 3");
-		item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3, SHORTCUT_MASK));
-		item.addActionListener(e -> model.start());
+            item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3, SHORTCUT_MASK));
+            item.addActionListener(e -> model.start());
 		menu.add(item);
 		
 		item = new JMenuItem("View 4");
-		item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_4, SHORTCUT_MASK));
-		item.addActionListener(e -> model.start());
+            item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_4, SHORTCUT_MASK));
+            item.addActionListener(e -> model.start());
 		menu.add(item);
     } 
 
