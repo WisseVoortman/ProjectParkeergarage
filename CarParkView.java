@@ -34,7 +34,6 @@ public class CarParkView extends AbstractView {
 				}
 			}
 		}
-		repaint();
 	}
 
 	public Dimension getPreferredSize() {
