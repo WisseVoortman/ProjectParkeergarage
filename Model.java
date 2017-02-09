@@ -137,6 +137,7 @@ public class Model implements Runnable{
         // Update the car park view.
         for( AbstractView v : views ) {
             v.updateView();
+            v.repaint();
         }
     }
     
@@ -446,7 +447,7 @@ public class Model implements Runnable{
     	int cent = revenue % 100;
     	
     	
-    	String revenueString = "€ " + Integer.toString(euro) + "." + Integer.toString(cent);
+    	String revenueString = "ï¿½ " + Integer.toString(euro) + "." + Integer.toString(cent);
     	
     	return revenueString;
     }
@@ -456,7 +457,7 @@ public class Model implements Runnable{
     	int cent = toMakeRevenue % 100;
     	
     	
-    	String toMakeRevenueString = "€ " + Integer.toString(euro) + "." + Integer.toString(cent);
+    	String toMakeRevenueString = "ï¿½ " + Integer.toString(euro) + "." + Integer.toString(cent);
     	
     	return toMakeRevenueString;
     }
