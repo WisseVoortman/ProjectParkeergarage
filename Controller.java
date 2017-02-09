@@ -9,8 +9,9 @@ public class Controller extends AbstractController {
 	private JButton start;
 	private JButton stop;
 	private JButton tick;
-	private JButton ticks;
-
+	private JButton ticksHour;
+	private JButton ticksDay;
+	
 	public Controller(Model model) {
 		super(model);
 		this.model=model;
@@ -22,20 +23,24 @@ public class Controller extends AbstractController {
 		stop.setEnabled(false);
 		tick=new JButton("1 minuut verder");
 		tick.addActionListener(this);
-		ticks=new JButton("1 uur verder");
-		ticks.addActionListener(this);
+		ticksHour=new JButton("1 uur verder");
+		ticksHour.addActionListener(this);
+		ticksDay=new JButton("1 dag verder");
+		ticksDay.addActionListener(this);
 		
 		
 		this.setLayout(null);
 		add(start);
 		add(stop);
 		add(tick);
-		add(ticks);
+		add(ticksHour);
+		add(ticksDay);
 		// setBounds x/horizontal co�rdinates, y/vertical co�rdinates, width, Height,
-		start.setBounds(0, 0, 70, 30);
-		stop.setBounds(80, 0, 70, 30);
-		tick.setBounds(160, 0, 70, 30);
-		ticks.setBounds(240, 0, 70, 30);
+		start.setBounds(25, 0, 100, 30);
+		stop.setBounds(135, 0, 100, 30);
+		tick.setBounds(245, 0, 125, 30);
+		ticksHour.setBounds(380, 0, 120, 30);
+		ticksDay.setBounds(510, 0, 120, 30);
 
 		setVisible(true);
 	}
@@ -45,6 +50,9 @@ public class Controller extends AbstractController {
 			System.out.println("Starting the simulator!");
 			model.start();
 			this.start.setEnabled(false);
+			this.tick.setEnabled(false);
+			this.ticksHour.setEnabled(false);
+			this.ticksDay.setEnabled(false);
 			this.stop.setEnabled(true);
 			System.out.println("The simulator has been started!");
 		}
@@ -53,6 +61,9 @@ public class Controller extends AbstractController {
 			System.out.println("Stopping the simulator!");
 			model.stop();
 			this.start.setEnabled(true);
+			this.tick.setEnabled(true);
+			this.ticksHour.setEnabled(true);
+			this.ticksDay.setEnabled(true);
 			this.stop.setEnabled(false);
 			System.out.println("The simulator has been stopped!");
 		}
@@ -63,14 +74,36 @@ public class Controller extends AbstractController {
 			System.out.println("Done with doing a single tick");
 		}
 		
-		if (e.getSource()==ticks) {
+		if (e.getSource()==ticksHour) {
 			System.out.println("Starting the simulator for 60 ticks");
 			new Thread( ()-> {
-				this.ticks.setEnabled(false);
-				model.ticks();
-				this.ticks.setEnabled(true);
+				this.start.setEnabled(false);
+				this.tick.setEnabled(false);
+				this.ticksHour.setEnabled(false);
+				this.ticksDay.setEnabled(false);
+				model.ticksHour();
+				this.start.setEnabled(true);
+				this.tick.setEnabled(true);
+				this.ticksHour.setEnabled(true);
+				this.ticksDay.setEnabled(true);
 			}).start();
 			System.out.println("60 ticks done!");
+		}
+		
+		if (e.getSource()==ticksDay) {
+			System.out.println("Starting a day worth of ticks");
+			new Thread( ()-> {
+				this.start.setEnabled(false);
+				this.tick.setEnabled(false);
+				this.ticksHour.setEnabled(false);
+				this.ticksDay.setEnabled(false);
+				model.ticksDay();
+				this.start.setEnabled(true);
+				this.tick.setEnabled(true);
+				this.ticksHour.setEnabled(true);
+				this.ticksDay.setEnabled(true);
+			}).start();
+			System.out.println("day worth of ticks done!");
 		}
 	}
 	
