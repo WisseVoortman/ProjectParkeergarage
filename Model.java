@@ -446,7 +446,7 @@ public class Model implements Runnable{
     	int cent = revenue % 100;
     	
     	
-    	String revenueString = "€ " + Integer.toString(euro) + "." + Integer.toString(cent);
+    	String revenueString = "ï¿½ " + Integer.toString(euro) + "." + Integer.toString(cent);
     	
     	return revenueString;
     }
@@ -456,7 +456,7 @@ public class Model implements Runnable{
     	int cent = toMakeRevenue % 100;
     	
     	
-    	String toMakeRevenueString = "€ " + Integer.toString(euro) + "." + Integer.toString(cent);
+    	String toMakeRevenueString = "ï¿½ " + Integer.toString(euro) + "." + Integer.toString(cent);
     	
     	return toMakeRevenueString;
     }
@@ -468,6 +468,35 @@ public class Model implements Runnable{
 	public void setDay(int day) {
 		this.day = day;
 	}
+
+	public void setDay(String day) {
+        switch(day.toLowerCase()) {
+            case "maandag":
+                this.day = 0;
+                break;
+            case "dinsdag":
+                this.day = 1;
+                break;
+            case "woensdag":
+                this.day = 2;
+                break;
+            case "donderdag":
+                this.day = 3;
+                break;
+            case "vrijdag":
+                this.day = 4;
+                break;
+            case "zaterdag":
+                this.day = 5;
+                break;
+            case "zondag":
+                this.day = 6;
+                break;
+            default:
+                this.day = 0;
+                break;
+        }
+    }
 
 	public int getHour() {
 		return hour;
