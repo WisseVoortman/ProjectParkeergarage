@@ -347,6 +347,10 @@ public class Model implements Runnable{
         return true;
     }
     
+    public boolean getSimulatorRunning() {
+    	return simulatorRunning;
+    }
+    
     public String getDay() {
     	if (day == 0) {
     		
