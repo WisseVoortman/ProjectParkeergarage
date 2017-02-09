@@ -35,10 +35,10 @@ public class Simulator {
     	earningsView = new EarningsView(model);
     	cirkelDiagramView = new CirkelDiagramView(model);
     	queueView = new QueueView(model);
-    	logView = new LogView(model);
+    	//logView = new LogView(model);
     	
     	screen=new JFrame("Parkeer Garage");
-		screen.setSize(900, 650);
+		screen.setSize(1500, 650);
 		screen.setResizable(true);
 		screen.setLayout(null);
 		screen.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -57,21 +57,21 @@ public class Simulator {
 		screen.getContentPane().add(earningsView);
 		screen.getContentPane().add(cirkelDiagramView);
 		screen.getContentPane().add(queueView);
-		screen.getContentPane().add(logView);
+		//screen.getContentPane().add(logView);
 		
 		//setbounds for the controller(s)
 		controller.setBounds(0, 0, 900, 50);
 		
-		//setBounds for the view(s)
-		carParkView.setBounds(0,50,900,500);
-		settingsView.setBounds(900, 600, 900, 500);
-		earningsView.setBounds(0, 600, 900, 200);
-        cirkelDiagramView.setBounds(900, 50, 250, 250);
-        queueView.setBounds(0, 800, 900, 160);
-        logView.setBounds(0, 960, 900, 50);
+		//setBounds for the view(s) (int x, int y, int width, int height)
+		carParkView.setBounds		(50,50,900,500);
+		settingsView.setBounds		(1000, 50, 500, 500);
+		earningsView.setBounds		(50, 600, 300, 250);
+        cirkelDiagramView.setBounds	(400, 600, 300, 250);
+        queueView.setBounds			(50, 900, 300, 250);
+        //logView.setBounds			(50, 960, 500, 250);
 		
 		screen.setVisible(true);
-
+		screen.getContentPane().setBackground(Color.YELLOW);
 		screen.repaint();
 		model.updateViews();
 		//model.run();
@@ -130,28 +130,83 @@ public class Simulator {
         menu = new JMenu("Views");
         menubar.add(menu);
         
-        item = new JMenuItem("View 1");
+        item = new JMenuItem("Alle Views");
             item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, SHORTCUT_MASK));
-            item.addActionListener(e -> model.start());
+            item.addActionListener(e -> showAllViews());
 		menu.add(item);
         
-		item = new JMenuItem("View 2");
+		item = new JMenuItem("Omzet View");
             item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, SHORTCUT_MASK));
-            item.addActionListener(e -> model.start());
+            item.addActionListener(e -> showEarningsView());
 		menu.add(item);
 		
-		item = new JMenuItem("View 3");
+		item = new JMenuItem("Parkeerplekken bezetting");
             item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3, SHORTCUT_MASK));
-            item.addActionListener(e -> model.start());
+            item.addActionListener(e -> showCirkelDiagramView());
 		menu.add(item);
 		
-		item = new JMenuItem("View 4");
+		item = new JMenuItem("Rijen");
             item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_4, SHORTCUT_MASK));
-            item.addActionListener(e -> model.start());
+            item.addActionListener(e -> showQueueView());
 		menu.add(item);
+		
+		item = new JMenuItem("verberg/toon Settings menu");
+        	item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_5, SHORTCUT_MASK));
+        	item.addActionListener(e -> showSettingsView());
+        menu.add(item);
     } 
 
     private void quit() {
         System.exit(0);
+    }
+    
+    private void showAllViews() {
+    	for( AbstractView v : model.getViews() ) {
+            v.setVisible(false);
+        }
+    }
+    
+    private void showEarningsView() {
+    	for( AbstractView v : model.getViews() ) {
+            v.setVisible(false);
+            earningsView.setBounds(50, 600, 300, 250);
+            carParkView.setVisible(true);
+            earningsView.setVisible(true);
+        }
+    	
+    }
+    
+    private void showCirkelDiagramView() {
+    	for( AbstractView v : model.getViews() ) {
+            v.setVisible(false);
+            cirkelDiagramView.setBounds(50, 600, 300, 250);
+            cirkelDiagramView.setVisible(true);
+            
+            carParkView.setVisible(true);
+        }
+    }
+    
+    private void showQueueView() {
+    	for( AbstractView v : model.getViews() ) {
+            v.setVisible(false);
+            queueView.setBounds(50, 600, 300, 250);
+            queueView.setVisible(true);
+            carParkView.setVisible(true);
+        }
+    }
+    
+    private void showSettingsView() {
+//    	for( AbstractView v : model.getViews() ) {
+//            v.setVisible(false);
+//            settingsView.setBounds(900, 600, 900, 500);
+//            settingsView.setVisible(true);
+//            carParkView.setVisible(true);
+//        }
+    	if(!settingsView.isVisible()) {
+			settingsView.setVisible(true);
+		} 
+		else {
+			settingsView.setVisible(false);
+		}
     }
 }
