@@ -117,7 +117,7 @@ public class SettingsView extends AbstractView {
 		textFields.add(tRows);
 		textFields.add(tPlaces);
 
-		lblPricePerMinute	= new JLabel( "Kosten per minuut" );
+		lblPricePerMinute	= new JLabel( "Kosten per minuut in cent: " );
 		labels.add(lblPricePerMinute);
 
 		tPricePerMinute		= new JTextField( String.valueOf( model.getPricePerMinute() ) );
@@ -130,15 +130,15 @@ public class SettingsView extends AbstractView {
 		titelLabel.setBounds(25, 0, (int)(titelLabel.getText().length() * 9), 30);
 		
 		//- Positioning
-		for( int i = 1; i < labels.size(); i++ ) {
+		for( int i = 0; i < labels.size(); i++ ) {
 			JLabel label = labels.get( i );
 			JTextField textField = textFields.get( i );
 
 			add( label );
 			add( textField );
 
-			label.setBounds(25, 30 * i, (int)(label.getText().length() * 9),30);
-			textField.setBounds(300 ,30 * i, 100,30);
+			label.setBounds(25, 30 * (i+1), (int)(label.getText().length() * 9),30);
+			textField.setBounds(300 ,30 * (i+1), 100,30);
 		}
 
 		add(bApplySettings);
