@@ -16,12 +16,14 @@ public class SettingsView extends AbstractView {
 	private JLabel lblWeekdayAdHoc, lblWeekDayParkingPass, lblWeekendDayAdHoc, lblWeekendDayParkingPass;
 	private JLabel lblEnterSpeed, lblPaymentSpeed, lblExitSpeed;
 	private JLabel lblFloors, lblRows, lblPlaces;
+	private JLabel lblPricePerMinute;
 
 	private JTextField tDay, tHour, tMinute;
 	private JTextField tTickPause;
 	private JTextField tWeekdayAdHoc, tWeekDayParkingPass, tWeekendDayAdHoc, tWeekendDayParkingPass;
 	private JTextField tEnterSpeed, tPaymentSpeed, tExitSpeed;
 	private JTextField tFloors, tRows, tPlaces;
+	private JTextField tPricePerMinute;
 
 	private ArrayList<JLabel> labels;
 	private ArrayList<JTextField> textFields;
@@ -114,6 +116,14 @@ public class SettingsView extends AbstractView {
 		textFields.add(tFloors);
 		textFields.add(tRows);
 		textFields.add(tPlaces);
+
+		lblPricePerMinute	= new JLabel( "Kosten per minuut" );
+		labels.add(lblPricePerMinute);
+
+		tPricePerMinute		= new JTextField( String.valueOf( model.getPricePerMinute() ) );
+		textFields.add(tPricePerMinute);
+
+
 		
 		add(titelLabel);
 
@@ -226,6 +236,11 @@ public class SettingsView extends AbstractView {
 				case 13:
 					if( Integer.valueOf( textField.getText() ) != model.getNumberOfPlaces() )
 						model.setNumberOfPlaces( Integer.valueOf( textField.getText() ) );
+					break;
+				//- Payment
+				case 14:
+					if( Integer.valueOf( textField.getText() ) != model.getPricePerMinute() )
+						model.setPricePerMinute( Integer.valueOf( textField.getText() ) );
 					break;
 				//- This shouldn't be happening. This DEFINITELY ISN'T HAPPENING.
 				default:

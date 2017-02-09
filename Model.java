@@ -621,7 +621,7 @@ public class Model implements Runnable{
         entrancePassQueue = new CarQueue();
         paymentCarQueue = new CarQueue();
         exitCarQueue = new CarQueue();
-        
+
         //- Re-load the view
         for( int i = 0; i < views.size(); i++ ) {
             AbstractView view = views.get(i);
