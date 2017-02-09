@@ -16,17 +16,17 @@ public class CirkelDiagramView extends AbstractView {
 		this.model=model;
 
 		//code for view here
-		label=new JLabel("dit is een de Cirkeldiagramview");
+		label=new JLabel("Parkeerplekken bezetting: ");
 		slices = new ArrayList<Slice>();
 
 		this.setLayout(null);
 		add(label);
 		
-		label.setBounds(0, 0, 200, 30);
+		label.setBounds(25, 0, 200, 30);
 
 		pieChart = new PieChart(slices);
 		add(pieChart);
-		pieChart.setBounds(0,0,200,200);
+		pieChart.setBounds(25,40,200,200);
 		
 		setVisible(true);
 		

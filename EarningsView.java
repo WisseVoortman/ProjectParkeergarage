@@ -24,7 +24,7 @@ public class EarningsView extends AbstractView {
 		this.model=model;
 		
 		
-		label=new JLabel("Earnings:");
+		label=new JLabel("Omzet:");
 		
 		dag = new JLabel("dag: ");
 		dagData = new JLabel();
@@ -57,19 +57,19 @@ public class EarningsView extends AbstractView {
 		
 				
 		
-		label.setBounds(0, 0, 200, 30);
+		label.setBounds(25, 0, 200, 30);
 		
-		dag.setBounds(0, 40, 200, 30);
-		dagData.setBounds(200, 40, 200, 30);
-		uur.setBounds(0, 70, 200, 30);
-		uurData.setBounds(200, 70, 200, 30);
-		minuut.setBounds(0, 100, 200, 30);
-		minuutData.setBounds(200, 100, 200, 30);
+		dag.setBounds(25, 40, 200, 30);
+		dagData.setBounds(225, 40, 200, 30);
+		uur.setBounds(25, 70, 200, 30);
+		uurData.setBounds(225, 70, 200, 30);
+		minuut.setBounds(25, 100, 200, 30);
+		minuutData.setBounds(225, 100, 200, 30);
 		
-		gemaakteOmzet.setBounds(0, 140, 200, 30);
-		gemaakteOmzetData.setBounds(200, 140, 200, 30);
-		teMakenOmzet.setBounds(0, 170, 200, 30);
-		teMakenOmzetData.setBounds(200, 170, 200, 30);
+		gemaakteOmzet.setBounds(25, 140, 200, 30);
+		gemaakteOmzetData.setBounds(225, 140, 200, 30);
+		teMakenOmzet.setBounds(25, 170, 200, 30);
+		teMakenOmzetData.setBounds(225, 170, 200, 30);
 		
 		setVisible(true);
 		

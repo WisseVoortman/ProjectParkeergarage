@@ -38,7 +38,7 @@ public class Simulator {
     	//logView = new LogView(model);
     	
     	screen=new JFrame("Parkeer Garage");
-		screen.setSize(1500, 650);
+		screen.setSize(1550, 650);
 		screen.setResizable(true);
 		screen.setLayout(null);
 		screen.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -60,7 +60,7 @@ public class Simulator {
 		//screen.getContentPane().add(logView);
 		
 		//setbounds for the controller(s)
-		controller.setBounds(0, 0, 900, 50);
+		controller.setBounds(50, 0, 900, 50);
 		
 		//setBounds for the view(s) (int x, int y, int width, int height)
 		carParkView.setBounds		(50,50,900,500);
@@ -71,7 +71,7 @@ public class Simulator {
         //logView.setBounds			(50, 960, 500, 250);
 		
 		screen.setVisible(true);
-		screen.getContentPane().setBackground(Color.YELLOW);
+		screen.getContentPane().setBackground(Color.lightGray);
 		screen.repaint();
 		model.updateViews();
 		//model.run();

@@ -23,7 +23,7 @@ public class QueueView extends AbstractView {
 		this.model=model;
 
 		//code for view here
-		label=new JLabel("dit is een de QueueView");
+		label=new JLabel("Rijen: ");
 		
 		entranceCarQueueLabel = new JLabel("Rij Hoofdingang: ");
 		entranceCarQueueSize = new JLabel();
@@ -51,15 +51,15 @@ public class QueueView extends AbstractView {
 		add(exitCarQueueSize);
 		
 		
-		label.setBounds(0, 0, 200, 30);
-		entranceCarQueueLabel.setBounds(0, 40, 200, 30);
-		entranceCarQueueSize.setBounds(200, 40, 200, 30);
-		entrancePassQueueLabel.setBounds(0, 70, 200, 30);
-		entrancePassQueueSize.setBounds(200, 70, 200, 30);
-		paymentCarQueueLabel.setBounds(0, 100, 200, 30);
-		paymentCarQueueSize.setBounds(200, 100, 200, 30);
-		exitCarQueueLabel.setBounds(0, 130, 200, 30);
-		exitCarQueueSize.setBounds(200, 130, 200, 30);
+		label.setBounds(25, 0, 200, 30);
+		entranceCarQueueLabel.setBounds(25, 40, 200, 30);
+		entranceCarQueueSize.setBounds(225, 40, 200, 30);
+		entrancePassQueueLabel.setBounds(25, 70, 200, 30);
+		entrancePassQueueSize.setBounds(225, 70, 200, 30);
+		paymentCarQueueLabel.setBounds(25, 100, 200, 30);
+		paymentCarQueueSize.setBounds(225, 100, 200, 30);
+		exitCarQueueLabel.setBounds(25, 130, 200, 30);
+		exitCarQueueSize.setBounds(225, 130, 200, 30);
 		
 		setVisible(true);
 		
