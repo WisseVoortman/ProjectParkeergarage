@@ -166,21 +166,68 @@ public class SettingsView extends AbstractView {
 		for( int i = 0; i < textFields.size(); i++ ) {
 			JTextField textField = textFields.get( i );
 			switch( i ) {
+				//- Time
 				case 0:
 					if( !textField.getText().toLowerCase().equals( model.getDayString().toLowerCase() ) )
 						model.setDay( textField.getText() );
 					break;
-
 				case 1:
 					if( Integer.valueOf( textField.getText() ) != model.getHour() )
 						model.setHour( Integer.valueOf( textField.getText() ) );
 					break;
-
 				case 2:
 					if( Integer.valueOf( textField.getText() ) != model.getMinute() )
 						model.setMinute( Integer.valueOf( textField.getText() ) );
 					break;
-
+				//- Tick pause
+				case 3:
+					if( Integer.valueOf( textField.getText() ) != model.getTickPause() )
+						model.setTickPause( Integer.valueOf( textField.getText() ) );
+					break;
+				//- Arrival speed
+				case 4:
+					if( Integer.valueOf( textField.getText() ) != model.getWeekDayArrivals() )
+						model.setWeekDayArrivals( Integer.valueOf( textField.getText() ) );
+					break;
+				case 5:
+					if( Integer.valueOf( textField.getText() ) != model.getWeekDayPassArrivals() )
+						model.setWeekDayPassArrivals( Integer.valueOf( textField.getText() ) );
+					break;
+				case 6:
+					if( Integer.valueOf( textField.getText() ) != model.getWeekendArrivals() )
+						model.setWeekendArrivals( Integer.valueOf( textField.getText() ) );
+					break;
+				case 7:
+					if( Integer.valueOf( textField.getText() ) != model.getWeekendPassArrivals() )
+						model.setWeekendPassArrivals( Integer.valueOf( textField.getText() ) );
+					break;
+				//- Queue speed
+				case 8:
+					if( Integer.valueOf( textField.getText() ) != model.getEnterSpeed() )
+						model.setEnterSpeed( Integer.valueOf( textField.getText() ) );
+					break;
+				case 9:
+					if( Integer.valueOf( textField.getText() ) != model.getPaymentSpeed() )
+						model.setPaymentSpeed( Integer.valueOf( textField.getText() ) );
+					break;
+				case 10:
+					if( Integer.valueOf( textField.getText() ) != model.getExitSpeed() )
+						model.setExitSpeed( Integer.valueOf( textField.getText() ) );
+					break;
+				//- Parking garage layout
+				case 11:
+					if( Integer.valueOf( textField.getText() ) != model.getNumberOfFloors() )
+						model.setNumberOfFloors( Integer.valueOf( textField.getText() ) );
+					break;
+				case 12:
+					if( Integer.valueOf( textField.getText() ) != model.getNumberOfRows() )
+						model.setNumberOfRows( Integer.valueOf( textField.getText() ) );
+					break;
+				case 13:
+					if( Integer.valueOf( textField.getText() ) != model.getNumberOfPlaces() )
+						model.setNumberOfPlaces( Integer.valueOf( textField.getText() ) );
+					break;
+				//- This shouldn't be happening. This DEFINITELY ISN'T HAPPENING.
 				default:
 					break;
 			}

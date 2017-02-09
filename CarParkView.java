@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.awt.*;
 
 @SuppressWarnings("serial")
@@ -67,5 +66,10 @@ public class CarParkView extends AbstractView {
 				60 + location.getPlace() * 10,
 				20 - 1,
 				10 - 1); // TODO use dynamic size or constants
+	}
+
+	public void redraw() {
+		size = new Dimension(0, 0);
+		updateView();
 	}
 }

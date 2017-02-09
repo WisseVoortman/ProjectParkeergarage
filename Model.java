@@ -454,7 +454,7 @@ public class Model implements Runnable{
     	int cent = revenue % 100;
     	
     	
-    	String revenueString = "€ " + Integer.toString(euro) + "." + Integer.toString(cent);
+    	String revenueString = "ï¿½ " + Integer.toString(euro) + "." + Integer.toString(cent);
     	
     	return revenueString;
     }
@@ -464,7 +464,7 @@ public class Model implements Runnable{
     	int cent = toMakeRevenue % 100;
     	
     	
-    	String toMakeRevenueString = "€ " + Integer.toString(euro) + "." + Integer.toString(cent);
+    	String toMakeRevenueString = "ï¿½ " + Integer.toString(euro) + "." + Integer.toString(cent);
     	
     	return toMakeRevenueString;
     }
@@ -596,17 +596,37 @@ public class Model implements Runnable{
 
 	public void setNumberOfFloors(int numberOfFloors) {
 		this.numberOfFloors = numberOfFloors;
+        updateLayout();
 	}
 
 	public void setNumberOfRows(int numberOfRows) {
 		this.numberOfRows = numberOfRows;
+        updateLayout();
 	}
 
 	public void setNumberOfPlaces(int numberOfPlaces) {
 		this.numberOfPlaces = numberOfPlaces;
+		updateLayout();
 	}
 
 	public List<AbstractView> getViews() {
 		return views;
 	}
+
+	public void updateLayout() {
+        //- Change the cars array
+        cars = new Car[numberOfFloors][numberOfRows][numberOfPlaces];
+        numberOfOpenSpots = numberOfFloors*numberOfRows*numberOfPlaces;
+        entranceCarQueue = new CarQueue();
+        entrancePassQueue = new CarQueue();
+        paymentCarQueue = new CarQueue();
+        exitCarQueue = new CarQueue();
+        
+        //- Re-load the view
+        for( int i = 0; i < views.size(); i++ ) {
+            AbstractView view = views.get(i);
+            if( view.getClass().getName().equals( CarParkView.class.getName() ) )
+                ((CarParkView)view).redraw();
+        }
+    };
 }
