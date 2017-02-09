@@ -8,6 +8,8 @@ public class SettingsView extends AbstractView {
 	private Model model;
 
 	private JButton bApplySettings;
+	
+	private JLabel titelLabel;
 
 	private JLabel lblDay, lblHour, lblMinute;
 	private JLabel lblTickPause;
@@ -34,7 +36,7 @@ public class SettingsView extends AbstractView {
 		textFields = new ArrayList<>();
 
 		//- Apply button
-		bApplySettings = new JButton( "Apply" );
+		bApplySettings = new JButton( "Toepassen" );
 		bApplySettings.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -43,9 +45,12 @@ public class SettingsView extends AbstractView {
 		});
 
 		//code for view here
-		lblDay 					= new JLabel( "Day" );
-		lblHour 				= new JLabel( "Hour" );
-		lblMinute 				= new JLabel( "Minute" );
+		
+		titelLabel 					= new JLabel("Instellingen: ");
+		
+		lblDay 					= new JLabel( "Dag: " );
+		lblHour 				= new JLabel( "Uur: " );
+		lblMinute 				= new JLabel( "Minuut: " );
 		labels.add( lblDay );
 		labels.add( lblHour );
 		labels.add( lblMinute );
@@ -57,17 +62,17 @@ public class SettingsView extends AbstractView {
 		textFields.add( tHour );
 		textFields.add( tMinute );
 
-		lblTickPause			= new JLabel( "Tick pause" );
+		lblTickPause			= new JLabel( "Tick pause in miliseconden: " );
 		labels.add( lblTickPause );
 
 		tTickPause				= new JTextField( String.valueOf( model.getTickPause() ) );
 		textFields.add( tTickPause );
 
 
-		lblWeekdayAdHoc			= new JLabel( "Weekday arrivals AdHoc" );
-		lblWeekDayParkingPass	= new JLabel( "Weekday arrivals ParkingPass" );
-		lblWeekendDayAdHoc		= new JLabel( "WeekendDay arrivals AdHoc" );
-		lblWeekendDayParkingPass= new JLabel( "WeekendDay arrivals ParkingPass" );
+		lblWeekdayAdHoc			= new JLabel( "Reguliere bezoekers werkdagen per uur: " ); 	// Weekday arrivals AdHoc
+		lblWeekDayParkingPass	= new JLabel( "Abbonementhouders werkdagen per uur: " ); 	// Weekday arrivals ParkingPass
+		lblWeekendDayAdHoc		= new JLabel( "Reguliere bezoekers Weekend per uur: " );	// WeekendDay arrivals AdHoc
+		lblWeekendDayParkingPass= new JLabel( "Abbonementhouders weekend per uur: " );		// WeekendDay arrivals ParkingPass
 		labels.add(lblWeekdayAdHoc);
 		labels.add(lblWeekDayParkingPass);
 		labels.add(lblWeekendDayAdHoc);
@@ -82,9 +87,9 @@ public class SettingsView extends AbstractView {
 		textFields.add(tWeekendDayAdHoc);
 		textFields.add(tWeekendDayParkingPass);
 
-		lblEnterSpeed 		= new JLabel( "Enter speed" );
-		lblPaymentSpeed 	= new JLabel( "Payment speed" );
-		lblExitSpeed		= new JLabel( "Exit speed" );
+		lblEnterSpeed 		= new JLabel( "Inrij snelheid per minuut: " );
+		lblPaymentSpeed 	= new JLabel( "Betaal snelheid per minuut: " );
+		lblExitSpeed		= new JLabel( "Exit speed per minuut: " );
 		labels.add(lblEnterSpeed);
 		labels.add(lblPaymentSpeed);
 		labels.add(lblExitSpeed);
@@ -96,9 +101,9 @@ public class SettingsView extends AbstractView {
 		textFields.add(tPaymentSpeed);
 		textFields.add(tExitSpeed);
 
-		lblFloors			= new JLabel( "Floors" );
-		lblRows				= new JLabel( "Rows" );
-		lblPlaces			= new JLabel( "Places" );
+		lblFloors			= new JLabel( "Verdiepingen: " );
+		lblRows				= new JLabel( "Rijen per verdieping: " );
+		lblPlaces			= new JLabel( "Plaatsen per rij: " );
 		labels.add(lblFloors);
 		labels.add(lblRows);
 		labels.add(lblPlaces);
@@ -109,21 +114,25 @@ public class SettingsView extends AbstractView {
 		textFields.add(tFloors);
 		textFields.add(tRows);
 		textFields.add(tPlaces);
+		
+		add(titelLabel);
 
+		titelLabel.setBounds(25, 0, (int)(titelLabel.getText().length() * 9), 30);
+		
 		//- Positioning
-		for( int i = 0; i < labels.size(); i++ ) {
+		for( int i = 1; i < labels.size(); i++ ) {
 			JLabel label = labels.get( i );
 			JTextField textField = textFields.get( i );
 
 			add( label );
 			add( textField );
 
-			label.setBounds(0, 30 * i, (int)(label.getText().length() * 9),30);
-			textField.setBounds(225 ,30 * i, 80,30);
+			label.setBounds(25, 30 * i, (int)(label.getText().length() * 9),30);
+			textField.setBounds(300 ,30 * i, 100,30);
 		}
 
 		add(bApplySettings);
-		bApplySettings.setBounds( 325, labels.size() * 30, 80, 30 );
+		bApplySettings.setBounds( 300, labels.size() * 30, 100, 30 );
 
 
 		this.setLayout(null);

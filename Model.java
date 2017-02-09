@@ -21,7 +21,7 @@ public class Model implements Runnable{
     private int hour = 0;
     private int minute = 0;
     
-    private int pricePerMinute = 10; // in cents
+    private int pricePerMinute = 5; // in cents
     private int revenue;
     private int toMakeRevenue;
     
@@ -96,8 +96,15 @@ public class Model implements Runnable{
     	handleEntrance();
     }
     
-    public void ticks() {
+    public void ticksHour() {
     	for (int i = 0; i < 60; i++){
+    		
+    		tick();
+    	}
+    }
+    
+    public void ticksDay() {
+    	for (int i = 0; i < 1440; i++){
     		
     		tick();
     	}
