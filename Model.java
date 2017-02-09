@@ -76,6 +76,7 @@ public class Model implements Runnable{
     
     public void stop(){
     	simulatorRunning = false;
+    	updateViews();
     }
     
     public void addView(AbstractView view) {
