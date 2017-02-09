@@ -64,11 +64,11 @@ public class Simulator {
 		controller.setBounds(50, 0, 900, 50);
 		
 		//setBounds for the view(s) (int x, int y, int width, int height)
-		carParkView.setBounds		(50,50,900,500);
-		settingsView.setBounds		(1000, 50, 500, 500);
-		earningsView.setBounds		(50, 600, 300, 250);
-        cirkelDiagramView.setBounds	(400, 600, 300, 250);
-        queueView.setBounds			(50, 900, 300, 250);
+		carParkView.setBounds		(50,50,900,530);
+		settingsView.setBounds		(1000, 50, 500, 530);
+		earningsView.setBounds		(50, 630, 300, 250);
+        cirkelDiagramView.setBounds	(400, 630, 300, 250);
+        queueView.setBounds			(50, 930, 300, 250);
         //logView.setBounds			(50, 960, 500, 250);
 		
 		screen.setVisible(true);

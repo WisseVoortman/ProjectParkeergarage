@@ -142,7 +142,7 @@ public class SettingsView extends AbstractView {
 		}
 
 		add(bApplySettings);
-		bApplySettings.setBounds( 300, labels.size() * 30, 100, 30 );
+		bApplySettings.setBounds( 300, (labels.size() * 30) + 30, 100, 30 );
 
 
 		this.setLayout(null);
