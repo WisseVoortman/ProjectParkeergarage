@@ -447,7 +447,7 @@ public class Model implements Runnable{
     	int cent = revenue % 100;
     	
     	
-    	String revenueString = "ï¿½ " + Integer.toString(euro) + "." + Integer.toString(cent);
+    	String revenueString = "€ " + Integer.toString(euro) + "." + Integer.toString(cent);
     	
     	return revenueString;
     }
@@ -457,7 +457,7 @@ public class Model implements Runnable{
     	int cent = toMakeRevenue % 100;
     	
     	
-    	String toMakeRevenueString = "ï¿½ " + Integer.toString(euro) + "." + Integer.toString(cent);
+    	String toMakeRevenueString = "€ " + Integer.toString(euro) + "." + Integer.toString(cent);
     	
     	return toMakeRevenueString;
     }
@@ -597,5 +597,9 @@ public class Model implements Runnable{
 
 	public void setNumberOfPlaces(int numberOfPlaces) {
 		this.numberOfPlaces = numberOfPlaces;
+	}
+
+	public List<AbstractView> getViews() {
+		return views;
 	}
 }
