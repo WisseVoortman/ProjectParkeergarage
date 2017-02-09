@@ -8,6 +8,7 @@ import java.awt.event.*;
 
 public class Simulator {
 
+	private static final String version = "1.0";
 	private Model model;
 	private JFrame screen;
 	
@@ -38,7 +39,7 @@ public class Simulator {
     	//logView = new LogView(model);
     	
     	screen=new JFrame("Parkeer Garage");
-		screen.setSize(1550, 650);
+		screen.setSize(1600, 1300);
 		screen.setResizable(true);
 		screen.setLayout(null);
 		screen.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -154,6 +155,21 @@ public class Simulator {
         	item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_5, SHORTCUT_MASK));
         	item.addActionListener(e -> showSettingsView());
         menu.add(item);
+        
+     // create the Over menu
+        menu = new JMenu("Over...");
+        menubar.add(menu);
+        
+        item = new JMenuItem("Over dit programma");
+    		item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, SHORTCUT_MASK));
+    		item.addActionListener(e -> showAbout());
+    	menu.add(item);
+    	
+    	item = new JMenuItem("Het Team");
+			item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_T, SHORTCUT_MASK));
+			item.addActionListener(e -> showTeam());
+		menu.add(item);
+        
     } 
 
     private void quit() {
@@ -161,9 +177,18 @@ public class Simulator {
     }
     
     private void showAllViews() {
+//    	for( AbstractView v : model.getViews() ) {
+//            v.setVisible(true);
+//        }
+    	carParkView.setBounds		(50,50,900,500);
+		settingsView.setBounds		(1000, 50, 500, 500);
+		earningsView.setBounds		(50, 600, 300, 250);
+        cirkelDiagramView.setBounds	(400, 600, 300, 250);
+        queueView.setBounds			(50, 900, 300, 250);
+        //logView.setBounds			(50, 960, 500, 250);
     	for( AbstractView v : model.getViews() ) {
-            v.setVisible(false);
-        }
+    		v.setVisible(true);
+    	  }
     }
     
     private void showEarningsView() {
@@ -208,5 +233,21 @@ public class Simulator {
 		else {
 			settingsView.setVisible(false);
 		}
+    }
+    
+    private void showAbout()
+    {
+        JOptionPane.showMessageDialog(screen, 
+                    "Simulator Parkeergarage\n" + "Versie: " + version,
+                    "Simulator Parkeergarage", 
+                    JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    private void showTeam()
+    {
+        JOptionPane.showMessageDialog(screen, 
+                    "Simulator Parkeergarage\n" + "Team: " + "Geert Terpstra, " + "Kenny de Jonge, " + "Mark Vos, " + "Mitchel van Rijn, " + "Wisse Voortman",
+                    "Simulator Parkeergarage", 
+                    JOptionPane.INFORMATION_MESSAGE);
     }
 }
