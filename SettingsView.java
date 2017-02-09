@@ -171,5 +171,6 @@ public class SettingsView extends AbstractView {
 					break;
 			}
 		}
+		model.updateViews();
 	}
 }
