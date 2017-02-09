@@ -158,8 +158,8 @@ public class SettingsView extends AbstractView {
 			JTextField textField = textFields.get( i );
 			switch( i ) {
 				case 0:
-					//if( Integer.valueOf( textField.getText() ) != model.getDay() )
-					//	model.setDay( textField.getText() );
+					if( !textField.getText().toLowerCase().equals( model.getDayString().toLowerCase() ) )
+						model.setDay( textField.getText() );
 					break;
 
 				case 1:
