@@ -1,10 +1,6 @@
-import java.awt.Color;
-
 import javax.swing.*;
-import javax.swing.JMenuBar;
-
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.KeyEvent;
 
 public class Simulator {
 
@@ -68,7 +64,7 @@ public class Simulator {
 		settingsView.setBounds		(1000, 50, 500, 530);
 		earningsView.setBounds		(50, 630, 300, 250);
         cirkelDiagramView.setBounds	(400, 630, 300, 250);
-        queueView.setBounds			(50, 930, 300, 250);
+        queueView.setBounds			(750, 630, 300, 250);
         //logView.setBounds			(50, 960, 500, 250);
 		
 		screen.setVisible(true);
@@ -180,11 +176,11 @@ public class Simulator {
 //    	for( AbstractView v : model.getViews() ) {
 //            v.setVisible(true);
 //        }
-    	carParkView.setBounds		(50,50,900,500);
-		settingsView.setBounds		(1000, 50, 500, 500);
-		earningsView.setBounds		(50, 600, 300, 250);
-        cirkelDiagramView.setBounds	(400, 600, 300, 250);
-        queueView.setBounds			(50, 900, 300, 250);
+		carParkView.setBounds		(50,50,900,530);
+		settingsView.setBounds		(1000, 50, 500, 530);
+		earningsView.setBounds		(50, 630, 300, 250);
+		cirkelDiagramView.setBounds	(400, 630, 300, 250);
+		queueView.setBounds			(750, 630, 300, 250);
         //logView.setBounds			(50, 960, 500, 250);
     	for( AbstractView v : model.getViews() ) {
     		v.setVisible(true);
