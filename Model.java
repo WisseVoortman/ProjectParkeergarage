@@ -432,4 +432,112 @@ public class Model implements Runnable{
     	
     	return revenueString;
     }
+
+	public int getDay() {
+		return day;
+	}
+
+	public void setDay(int day) {
+		this.day = day;
+	}
+
+	public int getHour() {
+		return hour;
+	}
+
+	public void setHour(int hour) {
+		this.hour = hour;
+	}
+
+	public int getMinute() {
+		return minute;
+	}
+
+	public void setMinute(int minute) {
+		this.minute = minute;
+	}
+
+	public int getPricePerMinute() {
+		return pricePerMinute;
+	}
+
+	public void setPricePerMinute(int pricePerMinute) {
+		this.pricePerMinute = pricePerMinute;
+	}
+
+	public int getTickPause() {
+		return tickPause;
+	}
+
+	public void setTickPause(int tickPause) {
+		this.tickPause = tickPause;
+	}
+
+	public int getWeekDayArrivals() {
+		return weekDayArrivals;
+	}
+
+	public void setWeekDayArrivals(int weekDayArrivals) {
+		this.weekDayArrivals = weekDayArrivals;
+	}
+
+	public int getWeekendArrivals() {
+		return weekendArrivals;
+	}
+
+	public void setWeekendArrivals(int weekendArrivals) {
+		this.weekendArrivals = weekendArrivals;
+	}
+
+	public int getWeekDayPassArrivals() {
+		return weekDayPassArrivals;
+	}
+
+	public void setWeekDayPassArrivals(int weekDayPassArrivals) {
+		this.weekDayPassArrivals = weekDayPassArrivals;
+	}
+
+	public int getWeekendPassArrivals() {
+		return weekendPassArrivals;
+	}
+
+	public void setWeekendPassArrivals(int weekendPassArrivals) {
+		this.weekendPassArrivals = weekendPassArrivals;
+	}
+
+	public int getEnterSpeed() {
+		return enterSpeed;
+	}
+
+	public void setEnterSpeed(int enterSpeed) {
+		this.enterSpeed = enterSpeed;
+	}
+
+	public int getPaymentSpeed() {
+		return paymentSpeed;
+	}
+
+	public void setPaymentSpeed(int paymentSpeed) {
+		this.paymentSpeed = paymentSpeed;
+	}
+
+	public int getExitSpeed() {
+		return exitSpeed;
+	}
+
+	public void setExitSpeed(int exitSpeed) {
+		this.exitSpeed = exitSpeed;
+	}
+
+	public void setNumberOfFloors(int numberOfFloors) {
+		this.numberOfFloors = numberOfFloors;
+	}
+
+	public void setNumberOfRows(int numberOfRows) {
+		this.numberOfRows = numberOfRows;
+	}
+
+	public void setNumberOfPlaces(int numberOfPlaces) {
+		this.numberOfPlaces = numberOfPlaces;
+	}
 }
