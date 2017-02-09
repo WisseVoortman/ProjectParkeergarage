@@ -118,8 +118,8 @@ public class SettingsView extends AbstractView {
 			add( label );
 			add( textField );
 
-			label.setBounds(0, 30 * ( i + 1), (int)(label.getText().length() * 9),30);
-			textField.setBounds(225 ,30 * ( i + 1), 80,30);
+			label.setBounds(0, 30 * i, (int)(label.getText().length() * 9),30);
+			textField.setBounds(225 ,30 * i, 80,30);
 		}
 
 		add(bApplySettings);
@@ -143,6 +143,11 @@ public class SettingsView extends AbstractView {
 			for( int i = 0; i < textFields.size(); i++ )
 				textFields.get(i).setEnabled( true) ;
 		}
+
+		//- Update some settings
+		tDay.setText( model.getDayString() );
+		tHour.setText( model.getHourString() );
+		tMinute.setText( model.getMinuteString() );
 
 		repaint();
 	}
