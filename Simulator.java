@@ -43,7 +43,7 @@ public class Simulator {
 		screen.setResizable(true);
 		screen.setLayout(null);
 		screen.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		screen.setIconImage(new ImageIcon(getClass().getResource("Icon.png")).getImage());
+		screen.setIconImage(new ImageIcon(getClass().getResource("resource/Icon.png")).getImage());
 		//- Full screen
 		screen.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
