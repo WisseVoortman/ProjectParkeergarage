@@ -21,6 +21,9 @@ public class Model implements Runnable{
     private int hour = 0;
     private int minute = 0;
     
+    private int pricePerMinute = 10;
+    private int revenue;
+    
     private int tickPause = 100;
     private boolean simulatorRunning;
     
@@ -176,6 +179,14 @@ public class Model implements Runnable{
     	while (paymentCarQueue.carsInQueue()>0 && i < paymentSpeed){
             Car car = paymentCarQueue.removeCar();
             // TODO Handle payment.
+            //check how long the car stayed
+            int carStayDuration = car.getStayMinutes(); 
+            
+            //calculate the price the car has to pay!
+            int carPrice = carStayDuration * pricePerMinute;
+            // add the price to the total Revenue
+            this.revenue = revenue + carPrice;
+            
             carLeavesSpot(car);
             i++;
     	}
@@ -410,5 +421,15 @@ public class Model implements Runnable{
     
     public CarQueue getExitCarQueue() {
     	return exitCarQueue;
+    }
+    
+    public String getRevenueString() {
+    	int euro = revenue / 100;
+    	int cent = revenue % 100;
+    	
+    	
+    	String revenueString = "€ " + Integer.toString(euro) + "." + Integer.toString(cent);
+    	
+    	return revenueString;
     }
 }
