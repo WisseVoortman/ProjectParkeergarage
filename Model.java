@@ -23,6 +23,7 @@ public class Model implements Runnable{
     
     private int pricePerMinute = 10; // in cents
     private int revenue;
+    private int toMakeRevenue;
     
     private int tickPause = 100;
     private boolean simulatorRunning;
@@ -152,6 +153,19 @@ public class Model implements Runnable{
     			getNumberOfOpenSpots()>0 &&
     			i<enterSpeed) {
             Car car = queue.removeCar();
+            
+            // add the price to the total Revenue
+            if(car.getHasToPay()){
+            	//TODO for car payment
+                //check how long the car stayed
+                  int carStayDuration = car.getStayMinutes(); 
+                  
+                  //calculate the price the car has to pay!
+                  int carPrice = carStayDuration * pricePerMinute;
+            	this.toMakeRevenue = toMakeRevenue + carPrice;
+            }
+            
+            
             Location freeLocation = getFirstFreeLocation();
             setCarAt(freeLocation, car);
             i++;
@@ -186,6 +200,9 @@ public class Model implements Runnable{
             int carPrice = carStayDuration * pricePerMinute;
             // add the price to the total Revenue
             this.revenue = revenue + carPrice;
+            
+            // remove the price from the toMakeRevenue
+            this.toMakeRevenue = toMakeRevenue - carPrice;
             
             carLeavesSpot(car);
             i++;
@@ -431,6 +448,16 @@ public class Model implements Runnable{
     	String revenueString = "€ " + Integer.toString(euro) + "." + Integer.toString(cent);
     	
     	return revenueString;
+    }
+    
+    public String getToMakeRevenueString() {
+    	int euro = toMakeRevenue / 100;
+    	int cent = toMakeRevenue % 100;
+    	
+    	
+    	String toMakeRevenueString = "€ " + Integer.toString(euro) + "." + Integer.toString(cent);
+    	
+    	return toMakeRevenueString;
     }
 
 	public int getDay() {
