@@ -62,9 +62,9 @@ public class Simulator {
 		//setBounds for the view(s) (int x, int y, int width, int height)
 		carParkView.setBounds		(50,50,900,530);
 		settingsView.setBounds		(1000, 50, 500, 530);
-		earningsView.setBounds		(50, 630, 300, 250);
-        cirkelDiagramView.setBounds	(400, 630, 300, 250);
-        queueView.setBounds			(750, 630, 300, 250);
+		earningsView.setBounds		(50, 600, 300, 250);
+        cirkelDiagramView.setBounds	(400, 600, 300, 250);
+        queueView.setBounds			(750, 600, 300, 250);
         //logView.setBounds			(50, 960, 500, 250);
 		
 		screen.setVisible(true);
@@ -178,9 +178,9 @@ public class Simulator {
 //        }
 		carParkView.setBounds		(50,50,900,530);
 		settingsView.setBounds		(1000, 50, 500, 530);
-		earningsView.setBounds		(50, 630, 300, 250);
-		cirkelDiagramView.setBounds	(400, 630, 300, 250);
-		queueView.setBounds			(750, 630, 300, 250);
+		earningsView.setBounds		(50, 600, 300, 250);
+		cirkelDiagramView.setBounds	(400, 600, 300, 250);
+		queueView.setBounds			(750, 600, 300, 250);
         //logView.setBounds			(50, 960, 500, 250);
     	for( AbstractView v : model.getViews() ) {
     		v.setVisible(true);
