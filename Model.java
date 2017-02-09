@@ -21,7 +21,7 @@ public class Model implements Runnable{
     private int hour = 0;
     private int minute = 0;
     
-    private int pricePerMinute = 10;
+    private int pricePerMinute = 10; // in cents
     private int revenue;
     
     private int tickPause = 100;
@@ -362,7 +362,7 @@ public class Model implements Runnable{
     	return simulatorRunning;
     }
     
-    public String getDay() {
+    public String getDayString() {
     	if (day == 0) {
     		
     		return "Maandag";
@@ -389,7 +389,7 @@ public class Model implements Runnable{
     	return "";
     }
     
-    public String getHour() {
+    public String getHourString() {
     	if (hour < 10) {
     		return "0" + Integer.toString(hour) ;
     	} 
@@ -398,7 +398,7 @@ public class Model implements Runnable{
     	}
     }
     
-    public String getMinute() {
+    public String getMinuteString() {
     	if (minute < 10) {
     		return "0" + Integer.toString(minute);
     	} 
