@@ -454,7 +454,7 @@ public class Model implements Runnable{
     	int cent = revenue % 100;
     	
     	
-    	String revenueString = "€ " + Integer.toString(euro) + "." + Integer.toString(cent);
+    	String revenueString = "\u20ac " + Integer.toString(euro) + "." + Integer.toString(cent);
     	
     	return revenueString;
     }
@@ -464,7 +464,7 @@ public class Model implements Runnable{
     	int cent = toMakeRevenue % 100;
     	
     	
-    	String toMakeRevenueString = "€ " + Integer.toString(euro) + "." + Integer.toString(cent);
+    	String toMakeRevenueString = "\u20ac " + Integer.toString(euro) + "." + Integer.toString(cent);
     	
     	return toMakeRevenueString;
     }
