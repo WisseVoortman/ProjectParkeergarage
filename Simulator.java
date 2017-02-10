@@ -113,12 +113,7 @@ public class Simulator {
 			item.addActionListener(e -> model.stop());
 		menu.add(item);
     	
-		item = new JMenuItem("tick");
-    		item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_T, SHORTCUT_MASK));
-    		item.addActionListener(e -> model.tick());
-    	menu.add(item);
-
-        menu.addSeparator();
+		menu.addSeparator();
 
         item = new JMenuItem("Fullscreen");
             item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F11, SHORTCUT_MASK));
@@ -257,7 +252,7 @@ public class Simulator {
     {
         JOptionPane.showMessageDialog(screen, 
                     "Simulator Parkeergarage\n" + "Team: " + "Geert Terpstra, " + "Kenny de Jonge, " + "Mark Vos, " + "Mitchel van Rijn, " + "Wisse Voortman",
-                    "Simulator Parkeergarage", 
+                    "Simulator Parkeergarage - Team Doet maar", 
                     JOptionPane.INFORMATION_MESSAGE);
     }
 }
