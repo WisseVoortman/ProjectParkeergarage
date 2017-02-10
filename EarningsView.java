@@ -1,3 +1,5 @@
+import java.awt.Font;
+
 import javax.swing.*;
 
 @SuppressWarnings("serial")
@@ -25,6 +27,7 @@ public class EarningsView extends AbstractView {
 		
 		
 		label=new JLabel("Omzet:");
+		label.setFont(new Font("default", Font.BOLD, 16));
 		
 		dag = new JLabel("dag: ");
 		dagData = new JLabel();

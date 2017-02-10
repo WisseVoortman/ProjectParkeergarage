@@ -17,12 +17,14 @@ public class CirkelDiagramView extends AbstractView {
 
 		//code for view here
 		label=new JLabel("Parkeerplekken bezetting: ");
+		label.setFont(new Font("default", Font.BOLD, 16));
+		
 		slices = new ArrayList<Slice>();
 
 		this.setLayout(null);
 		add(label);
 		
-		label.setBounds(25, 0, 200, 30);
+		label.setBounds(25, 0, 250, 30);
 
 		pieChart = new PieChart(slices);
 		add(pieChart);

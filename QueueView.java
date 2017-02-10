@@ -1,3 +1,5 @@
+import java.awt.Font;
+
 import javax.swing.*;
 
 @SuppressWarnings("serial")
@@ -24,6 +26,7 @@ public class QueueView extends AbstractView {
 
 		//code for view here
 		label=new JLabel("Rijen: ");
+		label.setFont(new Font("default", Font.BOLD, 16));
 		
 		entranceCarQueueLabel = new JLabel("Rij Hoofdingang: ");
 		entranceCarQueueSize = new JLabel();

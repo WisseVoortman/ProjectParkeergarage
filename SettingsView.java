@@ -1,4 +1,6 @@
 import javax.swing.*;
+
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -49,6 +51,7 @@ public class SettingsView extends AbstractView {
 		//code for view here
 		
 		titelLabel 					= new JLabel("Instellingen: ");
+		titelLabel.setFont(new Font("default", Font.BOLD, 16));
 		
 		lblDay 					= new JLabel( "Dag: " );
 		lblHour 				= new JLabel( "Uur: " );
