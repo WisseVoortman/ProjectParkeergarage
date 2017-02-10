@@ -104,12 +104,12 @@ public class Simulator {
         
         item = new JMenuItem("start");
     		item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, SHORTCUT_MASK));
-    		item.addActionListener(e -> model.start());
+    		item.addActionListener(e -> controller.start.doClick() );
     	menu.add(item);
         
     	item = new JMenuItem("pauzeer");
 			item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, SHORTCUT_MASK));
-			item.addActionListener(e -> model.stop());
+			item.addActionListener(e -> controller.stop.doClick() );
 		menu.add(item);
     	
 		menu.addSeparator();

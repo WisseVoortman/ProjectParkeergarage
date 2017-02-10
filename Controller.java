@@ -6,8 +6,8 @@ import java.awt.event.*;
 public class Controller extends AbstractController {
 	
 	private Model model;
-	private JButton start;
-	private JButton stop;
+	public JButton start;
+	public JButton stop;
 	private JButton tick;
 	private JButton ticksHour;
 	private JButton ticksDay;
