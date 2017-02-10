@@ -167,10 +167,11 @@ public class SettingsView extends AbstractView {
 		}
 
 		//- Update some settings
-		tDay.setText( model.getDayString() );
-		tHour.setText( model.getHourString() );
-		tMinute.setText( model.getMinuteString() );
-
+		if( model.getSimulatorRunning() ) {
+			tDay.setText(model.getDayString());
+			tHour.setText(model.getHourString());
+			tMinute.setText(model.getMinuteString());
+		}
 		repaint();
 	}
 

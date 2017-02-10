@@ -77,7 +77,7 @@ public class Simulator {
 			while( true ) {
 				model.updateViews();
 				try {
-					Thread.sleep(100); // Update 10 times per second
+					Thread.sleep(1000); // Update 10 times per second
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
