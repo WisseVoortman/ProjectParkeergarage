@@ -23,7 +23,7 @@ public class Simulator {
     public Simulator() {
     	model=new Model();
     	
-    	//creat an instance of controller 
+    	//create an instance of controller
     	controller=new Controller(model);
 	
     	//create an instance of a view
@@ -66,11 +66,25 @@ public class Simulator {
         cirkelDiagramView.setBounds	(400, 600, 300, 250);
         queueView.setBounds			(750, 600, 300, 250);
         //logView.setBounds			(50, 960, 500, 250);
-		
+
 		screen.setVisible(true);
 		screen.getContentPane().setBackground(Color.lightGray);
 		screen.repaint();
 		model.updateViews();
+
+		//- Update view
+		new Thread( () -> {
+			while( true ) {
+				model.updateViews();
+				System.out.println(1);
+				try {
+					Thread.sleep(100); // Update 10 times per second
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		} ).start();
+
 		//model.run();
     }
 
